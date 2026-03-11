@@ -1,0 +1,166 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FinanceManagementSystem</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #000000, #8B0000);
+            color: white;
+        }
+
+        /* ===== NAVBAR ===== */
+        .custom-navbar {
+            background: #000000;
+            border-bottom: 3px solid red;
+        }
+
+        .navbar-brand {
+            color: red !important;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+            .nav-link:hover {
+                color: red !important;
+            }
+
+        /* ===== CONTAINER CARD ===== */
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+        }
+
+        /* ===== BUTTON STYLE ===== */
+        .btn {
+            border-radius: 30px;
+            padding: 8px 20px;
+            font-weight: 500;
+        }
+
+        .btn-success {
+            background-color: red;
+            border: none;
+            color: white;
+        }
+
+            .btn-success:hover {
+                background-color: #cc0000;
+            }
+
+        .btn-warning {
+            background-color: black;
+            color: white;
+            border: 2px solid red;
+        }
+
+            .btn-warning:hover {
+                background-color: red;
+                color: black;
+            }
+
+        .btn-info {
+            background-color: red;
+            color: black;
+            border: none;
+        }
+
+            .btn-info:hover {
+                background-color: black;
+                color: white;
+            }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm shadow-lg mb-4 custom-navbar">
+            <div class="container-fluid">
+
+                <a class="navbar-brand fw-bold text-uppercase" asp-controller="Home" asp-action="Index">
+                   Apex Finance Management
+                </a>
+                    
+                
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+
+                    <ul class="navbar-nav me-auto">
+
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Expenses" asp-action="Index">Expenses</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="ExpenseCategories" asp-action="Index">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Expenses" asp-action="Report">Report</a>
+                            </li>
+                        }
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <span class="nav-link">Hello, @User.Identity!.Name</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Identity/Account/Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Identity/Account/Login">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Identity/Account/Register">Register</a>
+                            </li>
+                        }
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

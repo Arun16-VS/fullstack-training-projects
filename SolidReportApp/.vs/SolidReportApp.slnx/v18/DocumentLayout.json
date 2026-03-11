@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\models\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\models\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\services\\reportservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\services\\reportsaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\services\\reportsaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\services\\reportgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\services\\reportgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\interfaces\\ireportsaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\interfaces\\ireportsaver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\interfaces\\ireportgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\interfaces\\ireportgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\formatters\\excelformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\formatters\\excelformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\formatters\\pdfformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\formatters\\pdfformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\interfaces\\ireportformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\interfaces\\ireportformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|c:\\users\\arunv\\source\\repos\\solidreportapp\\solidreportapp\\models\\salesreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5522C19A-2067-4F30-8A7F-CA42EE8014F4}|SolidReportApp\\SolidReportApp.csproj|solutionrelative:solidreportapp\\models\\salesreport.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReportService.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Services\\ReportService.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Services\\ReportService.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Services\\ReportService.cs",
+              "RelativeToolTip": "SolidReportApp\\Services\\ReportService.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAUwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:11:42.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReportSaver.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Services\\ReportSaver.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Services\\ReportSaver.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Services\\ReportSaver.cs",
+              "RelativeToolTip": "SolidReportApp\\Services\\ReportSaver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:11:01.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReportGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Services\\ReportGenerator.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Services\\ReportGenerator.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Services\\ReportGenerator.cs",
+              "RelativeToolTip": "SolidReportApp\\Services\\ReportGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:10:19.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IReportSaver.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Interfaces\\IReportSaver.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Interfaces\\IReportSaver.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Interfaces\\IReportSaver.cs",
+              "RelativeToolTip": "SolidReportApp\\Interfaces\\IReportSaver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:09:26.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IReportGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Interfaces\\IReportGenerator.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Interfaces\\IReportGenerator.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Interfaces\\IReportGenerator.cs",
+              "RelativeToolTip": "SolidReportApp\\Interfaces\\IReportGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:08:42.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExcelFormatter.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Formatters\\ExcelFormatter.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Formatters\\ExcelFormatter.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Formatters\\ExcelFormatter.cs",
+              "RelativeToolTip": "SolidReportApp\\Formatters\\ExcelFormatter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:06:53.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PdfFormatter.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Formatters\\PdfFormatter.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Formatters\\PdfFormatter.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Formatters\\PdfFormatter.cs",
+              "RelativeToolTip": "SolidReportApp\\Formatters\\PdfFormatter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:06:11.88Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IReportFormatter.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Interfaces\\IReportFormatter.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Interfaces\\IReportFormatter.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Interfaces\\IReportFormatter.cs",
+              "RelativeToolTip": "SolidReportApp\\Interfaces\\IReportFormatter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:05:11.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SalesReport.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Models\\SalesReport.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Models\\SalesReport.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Models\\SalesReport.cs",
+              "RelativeToolTip": "SolidReportApp\\Models\\SalesReport.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:04:01.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Report.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Models\\Report.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Models\\Report.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Models\\Report.cs",
+              "RelativeToolTip": "SolidReportApp\\Models\\Report.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAgAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T04:01:37.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Program.cs",
+              "RelativeDocumentMoniker": "SolidReportApp\\Program.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\SolidReportApp\\SolidReportApp\\Program.cs",
+              "RelativeToolTip": "SolidReportApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T03:58:32.646Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
