@@ -1,0 +1,15 @@
+<div class="admin-page">
+  <h2>Admin Notifications</h2>
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="admin-card" *ngFor="let n of notifications">
+    <p><strong>{{ n.type }}</strong> - {{ n.message }}</p>
+    <p>{{ n.createdAt }}</p>
+
+    <button *ngIf="!n.isRead" class="approve" (click)="markAsRead(n.notificationId)">
+      Mark as Read
+    </button>
+  </div>
+
+  <p class="empty-state" *ngIf="!notifications.length && !errorMessage">No notifications available.</p>
+</div>
