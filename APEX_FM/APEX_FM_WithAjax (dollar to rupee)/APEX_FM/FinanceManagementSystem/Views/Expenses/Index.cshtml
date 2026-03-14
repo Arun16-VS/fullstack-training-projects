@@ -1,0 +1,39 @@
+@model IEnumerable<FinanceManagementSystem.Models.Expense>
+@{
+    ViewData["Title"] = "Expenses";
+}
+
+<h2>Expenses</h2>
+
+@Html.AntiForgeryToken()
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add Expense</a>
+    <a class="btn btn-secondary" asp-action="Report">Report</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr><th>User</th><th>Category</th><th>Amount</th><th>Date</th><th></th></tr>
+    </thead>
+    <tbody id="expenses-tbody">
+        @foreach (var e in Model)
+        {
+            <tr id="expense-row-@e.ExpenseId">
+                <td>@e.User?.Username</td>
+                <td>@e.Category?.CategoryName</td>
+                <td>₹@e.Amount.ToString("0.00")</td>
+                <td>@e.Date.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@e.ExpenseId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@e.ExpenseId">Edit</a> |
+                    <a href="#" class="text-danger delete-expense" data-id="@e.ExpenseId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/expenses.js"></script>
+}

@@ -1,0 +1,19 @@
+<div class="admin-page">
+  <h2>Pending Answers</h2>
+  <p class="error-text" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+  <div class="admin-card" *ngFor="let a of answers">
+    <p><strong>User:</strong> {{ a.username || 'User' }}</p>
+    <p><strong>Question ID:</strong> {{ a.questionId }}</p>
+    <p>{{ a.answerText }}</p>
+    <img *ngIf="a.imageUrl" [src]="answerService.resolveImageUrl(a.imageUrl)" alt="Pending answer image" class="admin-image">
+
+    <div class="actions">
+      <button class="approve" (click)="approve(a.answerId)">Approve</button>
+      <button class="reject" (click)="reject(a.answerId)">Reject</button>
+      <button class="delete-btn" (click)="deleteAnswer(a.answerId)">Delete</button>
+    </div>
+  </div>
+
+  <p class="empty-state" *ngIf="!answers.length && !errorMessage">No pending answers.</p>
+</div>

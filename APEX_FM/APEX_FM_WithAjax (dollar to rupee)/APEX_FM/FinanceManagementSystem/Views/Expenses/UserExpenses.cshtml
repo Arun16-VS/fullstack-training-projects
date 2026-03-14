@@ -1,0 +1,49 @@
+@model IEnumerable<FinanceManagementSystem.Models.Expense>
+@{
+    ViewData["Title"] = "User Expenses";
+}
+
+<h2>Expenses for @ViewBag.UserName</h2>
+
+@Html.AntiForgeryToken()
+
+<p>
+    <a class="btn btn-secondary" href="/Users">Back to Users</a>
+    <a class="btn btn-primary" href="/Expenses/Create">Add Expense</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="expenses-tbody">
+        @foreach (var e in Model)
+        {
+            <tr id="expense-row-@e.ExpenseId">
+                <td>@e.Category?.CategoryName</td>
+                <td>₹@e.Amount.ToString("0.00")</td>
+                <td>@e.Date.ToShortDateString()</td>
+                <td>@e.Description</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-action="Edit" asp-route-id="@e.ExpenseId">Edit</a>
+                    <a href="#" class="btn btn-sm btn-danger" onclick="deleteExpense(@e.ExpenseId); return false;">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <p>No expenses found for this user.</p>
+}
+
+@section Scripts {
+    <script src="~/js/expenses.js"></script>
+}

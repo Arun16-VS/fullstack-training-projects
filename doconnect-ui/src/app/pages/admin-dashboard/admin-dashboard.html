@@ -1,0 +1,54 @@
+<div class="admin-dashboard">
+  <div class="dashboard-header">
+    <div>
+      <h1>Admin Dashboard</h1>
+      <p>Review pending content, moderate quickly, and track the latest notifications.</p>
+    </div>
+    <div class="dashboard-actions">
+      <a routerLink="/admin/pending-questions">Pending Questions</a>
+      <a routerLink="/admin/pending-answers">Pending Answers</a>
+      <a routerLink="/admin/notifications">All Notifications</a>
+    </div>
+  </div>
+
+  <div class="status" *ngIf="loading">Loading dashboard...</div>
+  <div class="status error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div class="stats-grid" *ngIf="dashboard">
+    <div class="stat-card">
+      <span class="stat-label">Pending Questions</span>
+      <strong>{{ dashboard.pendingQuestionCount }}</strong>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Pending Answers</span>
+      <strong>{{ dashboard.pendingAnswerCount }}</strong>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Unread Notifications</span>
+      <strong>{{ dashboard.unreadNotificationCount }}</strong>
+    </div>
+  </div>
+
+  <div class="recent-panel" *ngIf="dashboard">
+    <div class="panel-header">
+      <h2>Recent Notifications</h2>
+      <a routerLink="/admin/notifications">View all</a>
+    </div>
+
+    <div class="notification-card" *ngFor="let notification of dashboard.recentNotifications">
+      <div>
+        <div class="notification-type">{{ notification.type }}</div>
+        <p>{{ notification.message }}</p>
+        <small>{{ notification.createdAt }}</small>
+      </div>
+
+      <button *ngIf="!notification.isRead" (click)="markAsRead(notification.notificationId)">
+        Mark as read
+      </button>
+    </div>
+
+    <div class="status" *ngIf="!dashboard.recentNotifications.length">
+      No notifications yet.
+    </div>
+  </div>
+</div>
