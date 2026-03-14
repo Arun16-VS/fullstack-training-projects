@@ -1,0 +1,27 @@
+<nav class="navbar">
+  <div class="brand" routerLink="/questions">
+    <span class="brand-text">DoConnect</span>
+  </div>
+
+  <div class="center-nav">
+    <a routerLink="/questions" routerLinkActive="active">Questions</a>
+    <a *ngIf="showAskQuestion()" routerLink="/ask-question" routerLinkActive="active">Ask Question</a>
+    <a *ngIf="isAdmin()" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+    <a *ngIf="isAdmin()" routerLink="/admin/pending-questions" routerLinkActive="active">Pending Questions</a>
+    <a *ngIf="isAdmin()" routerLink="/admin/pending-answers" routerLinkActive="active">Pending Answers</a>
+    <a *ngIf="isAdmin()" routerLink="/admin/notifications" routerLinkActive="active">Notifications</a>
+  </div>
+
+  <div class="right-nav" *ngIf="!isLoggedIn(); else loggedInBlock">
+    <a routerLink="/login">Login</a>
+    <a routerLink="/register" class="register-btn">Register</a>
+  </div>
+
+  <ng-template #loggedInBlock>
+    <div class="right-nav">
+      <span class="user-name">{{ getUsername() }}</span>
+      <a *ngIf="isAdmin()" routerLink="/admin/dashboard">Admin</a>
+      <button class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </ng-template>
+</nav>

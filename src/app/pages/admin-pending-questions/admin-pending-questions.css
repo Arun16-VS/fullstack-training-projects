@@ -1,0 +1,64 @@
+.admin-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.admin-card {
+  background: white;
+  border: 1px solid #d8dbe2;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.approve, .reject {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.approve { background: #16a34a; }
+.reject { background: #dc2626; }
+.edit-btn { background: #3f5ae0; border: none; padding: 10px 16px; border-radius: 10px; color: white; cursor: pointer; }
+.delete-btn { background: #111827; border: none; padding: 10px 16px; border-radius: 10px; color: white; cursor: pointer; }
+
+label {
+  display: block;
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+}
+
+.admin-image {
+  width: 100%;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: 12px 0;
+}
+
+.empty-state {
+  color: #64748b;
+}
+
+.error-text {
+  color: #dc2626;
+}
