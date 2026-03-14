@@ -1,0 +1,6 @@
+﻿Build started at 09:45...
+1>------ Build started: Project: SolidReportApp, Configuration: Debug Any CPU ------
+1>  Skipping analyzers to speed up the build. You can execute 'Build' or 'Rebuild' command to run analyzers.
+1>  SolidReportApp -> C:\Users\arunv\source\repos\SolidReportApp\SolidReportApp\bin\Debug\net10.0\SolidReportApp.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+========== Build completed at 09:45 and took 32.627 seconds ==========

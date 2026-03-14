@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="FinanceManagementSystem/FinanceManagementSystem.csproj" />
+  <Project Path="xUnit Test Project (.NET)/xUnit Test Project (.NET).csproj" />
+</Solution>

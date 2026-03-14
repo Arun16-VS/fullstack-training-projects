@@ -1,0 +1,259 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\AdminsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollegeMVCApp\\Controllers\\AdminsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\CourseStreamsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollegeMVCApp\\Controllers\\CourseStreamsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\ProfessorsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollegeMVCApp\\Controllers\\ProfessorsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\ParentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollegeMVCApp\\Controllers\\ParentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\StudentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollegeMVCApp\\Controllers\\StudentsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\models\\parent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\models\\parent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\models\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Data\\Migrations\\20260214093145_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CollegeMVCApp\\Data\\Migrations\\20260214093145_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\models\\professor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\models\\professor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\models\\coursestream.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\models\\coursestream.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|c:\\users\\arunv\\source\\repos\\collegemvcapp\\collegemvcapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B11E39E9-1B25-4A87-9EC0-7EB14C880E9C}|CollegeMVCApp\\CollegeMVCApp.csproj|solutionrelative:collegemvcapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Admin.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T08:50:23.756Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminsController.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\AdminsController.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Controllers\\AdminsController.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\AdminsController.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Controllers\\AdminsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:55:07.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CourseStreamsController.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\CourseStreamsController.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Controllers\\CourseStreamsController.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\CourseStreamsController.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Controllers\\CourseStreamsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:52:51.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProfessorsController.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\ProfessorsController.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Controllers\\ProfessorsController.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\ProfessorsController.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Controllers\\ProfessorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:51:23.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ParentsController.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\ParentsController.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Controllers\\ParentsController.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\ParentsController.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Controllers\\ParentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:49:36.472Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "StudentsController.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\StudentsController.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Controllers\\StudentsController.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Controllers\\StudentsController.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Controllers\\StudentsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:47:44.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "20260214093145_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Data\\Migrations\\20260214093145_InitialCreate.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Data\\Migrations\\20260214093145_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Data\\Migrations\\20260214093145_InitialCreate.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Data\\Migrations\\20260214093145_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:31:47.94Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T09:25:59.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\appsettings.json",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\appsettings.json",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\appsettings.json",
+              "RelativeToolTip": "CollegeMVCApp\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-14T08:55:02.369Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Professor.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Professor.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Models\\Professor.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Professor.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Models\\Professor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T08:50:51.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Parent.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Parent.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Models\\Parent.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Parent.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Models\\Parent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T08:49:55.398Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Student.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Models\\Student.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\Student.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Models\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T08:47:11.188Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CourseStream.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\CourseStream.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Models\\CourseStream.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Models\\CourseStream.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Models\\CourseStream.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T08:51:16.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Program.cs",
+              "RelativeDocumentMoniker": "CollegeMVCApp\\Program.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CollegeMVCApp\\CollegeMVCApp\\Program.cs",
+              "RelativeToolTip": "CollegeMVCApp\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-14T08:44:20.561Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

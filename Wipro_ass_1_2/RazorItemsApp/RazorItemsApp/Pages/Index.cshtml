@@ -1,0 +1,17 @@
+﻿@page
+@model RazorItemsApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Item List";
+}
+
+
+<h2>Item List</h2>
+
+<ul>
+    @foreach (var item in IndexModel.Items)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+
+<a href="/AddItem">Add New Item</a>
