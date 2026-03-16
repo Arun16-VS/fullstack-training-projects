@@ -1,0 +1,34 @@
+﻿@model IEnumerable<FinanceManagementSystem.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h2>Users</h2>
+
+<p>
+    
+</p>
+
+<table class="table">
+    <thead>
+        <tr><th>Username</th><th>Email</th><th></th></tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Username</td>
+                <td>@u.Email</td>
+                <td>
+                    <a class="btn btn-sm btn-info" href="/Expenses/UserExpenses/@u.UserId">
+                        View Expenses
+                    </a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@u.UserId">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,8 @@
+:host {
+  display: block;
+}
+
+.page-wrapper {
+  min-height: calc(100vh - 70px);
+  background: #f3f4f6;
+}

@@ -1,0 +1,4 @@
+﻿Build started at 20:03...
+1>------ Build started: Project: CalculatorTests, Configuration: Debug Any CPU ------
+========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
+========== Build completed at 20:03 and took 01.337 seconds ==========

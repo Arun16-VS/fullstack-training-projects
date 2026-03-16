@@ -1,0 +1,146 @@
+@{
+    ViewData["Title"] = "Expense Report";
+}
+
+<h2>Expense Report</h2>
+
+<div class="row mb-3">
+    <div class="col-auto">
+        <label>From</label>
+        <input id="fromDate" type="date" class="form-control" />
+    </div>
+    <div class="col-auto">
+        <label>To</label>
+        <input id="toDate" type="date" class="form-control" />
+    </div>
+    <div class="col-auto align-self-end">
+        <button id="btnGenerate" class="btn btn-primary">Generate</button>
+        <button id="btnClear" class="btn btn-outline-secondary">Clear</button>
+    </div>
+</div>
+
+<div id="report-loading" style="display:none;" class="text-muted mb-2">Loading...</div>
+
+<table class="table">
+    <thead>
+        <tr><th>Category</th><th>Amount</th><th>Description</th><th>Date</th></tr>
+    </thead>
+    <tbody id="report-tbody">
+        <tr><td colspan="4" class="text-center text-muted">Select a date range and click Generate.</td></tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="4" class="text-end fw-bold"><span id="report-total"></span></td>
+        </tr>
+    </tfoot>
+</table>
+
+@section Scripts {
+    <script>
+        (function () {
+            // Helpers
+            function formatCurrency(amount) {
+                try {
+                    return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(amount);
+                } catch (e) {
+                    return "₹" + Number(amount || 0).toFixed(2);
+                }
+            }
+
+            function formatDate(iso) {
+                if (!iso) return "-";
+                var d = new Date(iso);
+                return isNaN(d.getTime()) ? iso : d.toLocaleDateString();
+            }
+
+            // Clear report UI
+            function clearReport() {
+                $("#fromDate").val("");
+                $("#toDate").val("");
+                $("#report-tbody").html('<tr><td colspan="4" class="text-center text-muted">Select a date range and click Generate.</td></tr>');
+                $("#report-total").text("");
+            }
+
+            // Load report via AJAX
+            function loadReport() {
+                var fromDate = $("#fromDate").val();
+                var toDate = $("#toDate").val();
+
+                // Basic client validation
+                if (!fromDate || !toDate) {
+                    alert("Please select both From and To dates.");
+                    return;
+                }
+                if (new Date(fromDate) > new Date(toDate)) {
+                    alert("From date cannot be later than To date.");
+                    return;
+                }
+
+                $("#report-loading").show();
+                $("#report-tbody").empty();
+                $("#report-total").text("");
+
+                $.ajax({
+                    url: "/Expenses/ReportData",
+                    type: "GET",
+                    data: { fromDate: fromDate, toDate: toDate },
+                    dataType: "json"
+                }).done(function (data) {
+                    $("#report-loading").hide();
+
+                    if (!data || data.length === 0) {
+                        $("#report-tbody").append('<tr><td colspan="4" class="text-center text-muted">No expenses found for this period.</td></tr>');
+                        $("#report-total").text(formatCurrency(0));
+                        return;
+                    }
+
+                    var total = 0;
+                    data.forEach(function (e) {
+                        var row = "<tr>" +
+                            "<td>" + (e.categoryName || "-") + "</td>" +
+                            "<td>" + formatCurrency(Number(e.amount || 0)) + "</td>" +
+                            "<td>" + (e.description || "-") + "</td>" +
+                            "<td>" + formatDate(e.date) + "</td>" +
+                            "</tr>";
+                        $("#report-tbody").append(row);
+                        total += Number(e.amount || 0);
+                    });
+
+                    $("#report-total").text(formatCurrency(total));
+                }).fail(function (jqXHR) {
+                    $("#report-loading").hide();
+                    var msg = "Failed to load report. Please try again.";
+                    try {
+                        var json = jqXHR.responseJSON;
+                        if (json && json.message) msg = json.message;
+                    } catch (ignore) { }
+                    alert(msg);
+                });
+            }
+
+            // DOM bindings
+            $(function () {
+                $("#btnGenerate").on("click", function (e) {
+                    e.preventDefault();
+                    loadReport();
+                });
+
+                $("#btnClear").on("click", function (e) {
+                    e.preventDefault();
+                    clearReport();
+                });
+
+                // allow Enter to trigger
+                $("#fromDate, #toDate").on("keypress", function (e) {
+                    if (e.which === 13) {
+                        $("#btnGenerate").click();
+                    }
+                });
+            });
+
+            // expose for debugging if needed
+            window.loadReport = loadReport;
+            window.clearReport = clearReport;
+        })();
+    </script>
+}

@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|c:\\users\\arunv\\source\\repos\\middlewaredemoapp\\middlewaredemoapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|solutionrelative:middlewaredemoapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|c:\\users\\arunv\\source\\repos\\middlewaredemoapp\\middlewaredemoapp\\wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|solutionrelative:middlewaredemoapp\\wwwroot\\script.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|c:\\users\\arunv\\source\\repos\\middlewaredemoapp\\middlewaredemoapp\\wwwroot\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|solutionrelative:middlewaredemoapp\\wwwroot\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|c:\\users\\arunv\\source\\repos\\middlewaredemoapp\\middlewaredemoapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{64568BC1-3193-41C5-8DB1-E473C16BDAB0}|MiddlewareDemoApp\\MiddlewareDemoApp.csproj|solutionrelative:middlewaredemoapp\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "script.js",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\wwwroot\\script.js",
+              "RelativeDocumentMoniker": "MiddlewareDemoApp\\wwwroot\\script.js",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\wwwroot\\script.js*",
+              "RelativeToolTip": "MiddlewareDemoApp\\wwwroot\\script.js*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-02-17T16:22:30.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\wwwroot\\style.css",
+              "RelativeDocumentMoniker": "MiddlewareDemoApp\\wwwroot\\style.css",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\wwwroot\\style.css*",
+              "RelativeToolTip": "MiddlewareDemoApp\\wwwroot\\style.css*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-02-17T16:21:14.123Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "MiddlewareDemoApp\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\wwwroot\\index.html*",
+              "RelativeToolTip": "MiddlewareDemoApp\\wwwroot\\index.html*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-02-17T16:19:14.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\Program.cs",
+              "RelativeDocumentMoniker": "MiddlewareDemoApp\\Program.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\MiddlewareDemoApp\\MiddlewareDemoApp\\Program.cs*",
+              "RelativeToolTip": "MiddlewareDemoApp\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-17T16:13:38.113Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

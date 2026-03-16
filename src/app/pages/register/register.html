@@ -1,0 +1,30 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="icon-circle">&#8853;</div>
+    <h1>Create Account</h1>
+    <p>Join the DoConnect community</p>
+
+    <form (ngSubmit)="onRegister()">
+      <label>Username</label>
+      <input [(ngModel)]="username" name="username" type="text" placeholder="Choose a username" required>
+
+      <label>Email</label>
+      <input [(ngModel)]="email" name="email" type="email" placeholder="your@email.com" required>
+
+      <label>Password</label>
+      <input [(ngModel)]="password" name="password" type="password" placeholder="Create a password" required>
+
+      <label>Confirm Password</label>
+      <input [(ngModel)]="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" required>
+
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+      <div class="success" *ngIf="successMessage">{{ successMessage }}</div>
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="bottom-link">
+      Already have an account? <a routerLink="/login">Sign in</a>
+    </div>
+  </div>
+</div>

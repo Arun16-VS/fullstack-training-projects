@@ -1,0 +1,32 @@
+@model IEnumerable<FinanceManagementSystem.Models.ExpenseCategory>
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<h2>Categories</h2>
+
+@Html.AntiForgeryToken()
+
+<p><a class="btn btn-primary" asp-action="Create">Add Category</a></p>
+
+<table class="table">
+    <thead>
+        <tr><th>Name</th><th></th></tr>
+    </thead>
+    <tbody id="categories-tbody">
+        @foreach (var c in Model)
+        {
+            <tr id="category-row-@c.CategoryId">
+                <td>@c.CategoryName</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.CategoryId">Edit</a> |
+                    <a href="#" onclick="deleteCategory(@c.CategoryId); return false;" class="text-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/expenses.js"></script>
+}

@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+@if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+    <h2>Apex-Finance Management System</h2>
+    <p>Manage your expenses easily.</p>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 15px;">
+        <a class="btn btn-success" href="/ExpenseCategories">Categories</a>
+        <a class="btn btn-warning" href="/Expenses">Expenses</a>
+        <a class="btn btn-info" href="/Expenses/Report">Expense Report</a>
+    </div>
+}
+else
+{
+    <div class="text-center py-5">
+        <h2>Welcome to Apex-Finance Management</h2>
+        <p class="mb-4">Please log in or register to manage your expenses.</p>
+        <a class="btn btn-outline-light me-2" href="/Identity/Account/Login">Login</a>
+        <a class="btn btn-primary" href="/Identity/Account/Register">Register</a>
+    </div>
+}

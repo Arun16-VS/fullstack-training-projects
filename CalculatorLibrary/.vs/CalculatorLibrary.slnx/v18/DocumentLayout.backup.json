@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\arunv\\source\\repos\\CalculatorLibrary\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4C341DE2-CDF4-44F0-985A-C61FD863FABB}|CalculatorTests\\CalculatorTests.csproj|c:\\users\\arunv\\source\\repos\\calculatorlibrary\\calculatortests\\calculatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4C341DE2-CDF4-44F0-985A-C61FD863FABB}|CalculatorTests\\CalculatorTests.csproj|solutionrelative:calculatortests\\calculatortests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6D5A0F29-89FC-46BB-BB8E-2333B47AB987}|CalculatorLibrary\\CalculatorLibrary.csproj|c:\\users\\arunv\\source\\repos\\calculatorlibrary\\calculatorlibrary\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6D5A0F29-89FC-46BB-BB8E-2333B47AB987}|CalculatorLibrary\\CalculatorLibrary.csproj|solutionrelative:calculatorlibrary\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CalculatorTests.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CalculatorLibrary\\CalculatorTests\\CalculatorTests.cs",
+              "RelativeDocumentMoniker": "CalculatorTests\\CalculatorTests.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CalculatorLibrary\\CalculatorTests\\CalculatorTests.cs",
+              "RelativeToolTip": "CalculatorTests\\CalculatorTests.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAA5wFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T14:11:19.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Calculator.cs",
+              "DocumentMoniker": "C:\\Users\\arunv\\source\\repos\\CalculatorLibrary\\CalculatorLibrary\\Calculator.cs",
+              "RelativeDocumentMoniker": "CalculatorLibrary\\Calculator.cs",
+              "ToolTip": "C:\\Users\\arunv\\source\\repos\\CalculatorLibrary\\CalculatorLibrary\\Calculator.cs",
+              "RelativeToolTip": "CalculatorLibrary\\Calculator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T14:06:32.543Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
