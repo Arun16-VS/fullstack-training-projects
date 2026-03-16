@@ -124,6 +124,15 @@ Frontend URL:
 
 ---
 
+## Database and Configuration Files
+
+- Database script: `Database_Schema_DoConnect.sql`
+- API configuration: `API/appsettings.json`
+- Database server: `(localdb)\MSSQLLocalDB`
+- Database name: `DatabaseDB`
+
+---
+
 ## Default Admin Credentials
 
 | Email | Password |
