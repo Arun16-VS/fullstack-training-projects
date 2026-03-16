@@ -1,0 +1,18 @@
+## Frontend
+Angular/node_modules/
+Angular/.angular/
+Angular/dist/
+Angular/.vs/
+
+## Backend
+API/bin/
+API/obj/
+API/.vs/
+
+## Workspace / IDE
+.vs/
+.vscode/
+
+## OS files
+Thumbs.db
+Desktop.ini
