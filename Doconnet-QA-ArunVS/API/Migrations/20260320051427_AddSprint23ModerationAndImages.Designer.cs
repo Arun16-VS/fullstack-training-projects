@@ -4,6 +4,7 @@ using DoConnect.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoConnect.API.Migrations
 {
     [DbContext(typeof(DoConnectDbContext))]
-    partial class DoConnectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260320051427_AddSprint23ModerationAndImages")]
+    partial class AddSprint23ModerationAndImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,33 +73,6 @@ namespace DoConnect.API.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Answers");
-                });
-
-            modelBuilder.Entity("DoConnect.API.Models.AnswerVote", b =>
-                {
-                    b.Property<int>("AnswerVoteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AnswerVoteId"));
-
-                    b.Property<int>("AnswerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
-
-                    b.HasKey("AnswerVoteId");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("AnswerId", "UserId")
-                        .IsUnique();
-
-                    b.ToTable("AnswerVotes");
                 });
 
             modelBuilder.Entity("DoConnect.API.Models.Image", b =>
@@ -233,33 +209,6 @@ namespace DoConnect.API.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("DoConnect.API.Models.QuestionVote", b =>
-                {
-                    b.Property<int>("QuestionVoteId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("QuestionVoteId"));
-
-                    b.Property<int>("QuestionId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Value")
-                        .HasColumnType("int");
-
-                    b.HasKey("QuestionVoteId");
-
-                    b.HasIndex("UserId");
-
-                    b.HasIndex("QuestionId", "UserId")
-                        .IsUnique();
-
-                    b.ToTable("QuestionVotes");
                 });
 
             modelBuilder.Entity("DoConnect.API.Models.Review", b =>
@@ -404,25 +353,6 @@ namespace DoConnect.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DoConnect.API.Models.AnswerVote", b =>
-                {
-                    b.HasOne("DoConnect.API.Models.Answer", "Answer")
-                        .WithMany("Votes")
-                        .HasForeignKey("AnswerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DoConnect.API.Models.User", "User")
-                        .WithMany("AnswerVotes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Answer");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DoConnect.API.Models.Image", b =>
                 {
                     b.HasOne("DoConnect.API.Models.Answer", "Answer")
@@ -469,25 +399,6 @@ namespace DoConnect.API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("DoConnect.API.Models.QuestionVote", b =>
-                {
-                    b.HasOne("DoConnect.API.Models.Question", "Question")
-                        .WithMany("Votes")
-                        .HasForeignKey("QuestionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DoConnect.API.Models.User", "User")
-                        .WithMany("QuestionVotes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Question");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("DoConnect.API.Models.Review", b =>
                 {
                     b.HasOne("DoConnect.API.Models.User", "User")
@@ -521,8 +432,6 @@ namespace DoConnect.API.Migrations
             modelBuilder.Entity("DoConnect.API.Models.Answer", b =>
                 {
                     b.Navigation("Images");
-
-                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("DoConnect.API.Models.Question", b =>
@@ -532,14 +441,10 @@ namespace DoConnect.API.Migrations
                     b.Navigation("Images");
 
                     b.Navigation("Notifications");
-
-                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("DoConnect.API.Models.User", b =>
                 {
-                    b.Navigation("AnswerVotes");
-
                     b.Navigation("Answers");
 
                     b.Navigation("Followers");
@@ -547,8 +452,6 @@ namespace DoConnect.API.Migrations
                     b.Navigation("Following");
 
                     b.Navigation("Notifications");
-
-                    b.Navigation("QuestionVotes");
 
                     b.Navigation("Questions");
 

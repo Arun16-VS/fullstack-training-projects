@@ -16,6 +16,9 @@ namespace DoConnect.API.Models
 
         public string? ImageUrl { get; set; }
 
+        [Required, MaxLength(20)]
+        public string ApprovalStatus { get; set; } = "Approved";
+
         public string? Tags { get; set; } // Comma-separated
 
         public int ViewCount { get; set; } = 0;
@@ -40,5 +43,7 @@ namespace DoConnect.API.Models
         // Navigation
         public ICollection<Answer> Answers { get; set; } = new List<Answer>();
         public ICollection<Notification> Notifications { get; set; } = new List<Notification>();
+        public ICollection<Image> Images { get; set; } = new List<Image>();
+        public ICollection<QuestionVote> Votes { get; set; } = new List<QuestionVote>();
     }
 }

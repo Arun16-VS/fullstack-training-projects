@@ -13,6 +13,10 @@ const routes: Routes = [
     loadComponent: () => import('./components/auth/register/register.component').then(m => m.RegisterComponent)
   },
   {
+    path: 'about',
+    loadComponent: () => import('./components/shared/about-platform/about-platform.component').then(m => m.AboutPlatformComponent)
+  },
+  {
     path: 'questions',
     loadComponent: () => import('./components/questions/question-list/question-list.component').then(m => m.QuestionListComponent)
   },

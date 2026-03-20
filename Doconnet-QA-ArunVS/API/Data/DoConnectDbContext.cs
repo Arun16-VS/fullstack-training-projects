@@ -13,6 +13,9 @@ namespace DoConnect.API.Data
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<UserConnection> UserConnections { get; set; }
+        public DbSet<Image> Images { get; set; }
+        public DbSet<QuestionVote> QuestionVotes { get; set; }
+        public DbSet<AnswerVote> AnswerVotes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -62,6 +65,52 @@ namespace DoConnect.API.Data
                 .HasForeignKey(n => n.QuestionId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<Image>()
+                .HasOne(i => i.Question)
+                .WithMany(q => q.Images)
+                .HasForeignKey(i => i.QuestionId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Image>()
+                .HasOne(i => i.Answer)
+                .WithMany(a => a.Images)
+                .HasForeignKey(i => i.AnswerId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<QuestionVote>()
+                .HasIndex(v => new { v.QuestionId, v.UserId })
+                .IsUnique();
+
+            modelBuilder.Entity<QuestionVote>()
+                .HasOne(v => v.Question)
+                .WithMany(q => q.Votes)
+                .HasForeignKey(v => v.QuestionId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<QuestionVote>()
+                .HasOne(v => v.User)
+                .WithMany(u => u.QuestionVotes)
+                .HasForeignKey(v => v.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<AnswerVote>()
+                .HasIndex(v => new { v.AnswerId, v.UserId })
+                .IsUnique();
+
+            modelBuilder.Entity<AnswerVote>()
+                .HasOne(v => v.Answer)
+                .WithMany(a => a.Votes)
+                .HasForeignKey(v => v.AnswerId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<AnswerVote>()
+                .HasOne(v => v.User)
+                .WithMany(u => u.AnswerVotes)
+                .HasForeignKey(v => v.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
             // Review -> User
             modelBuilder.Entity<Review>()

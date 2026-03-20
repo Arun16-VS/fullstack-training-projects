@@ -33,5 +33,7 @@ namespace DoConnect.API.Models
         public ICollection<Review> Reviews { get; set; } = new List<Review>();
         public ICollection<UserConnection> Followers { get; set; } = new List<UserConnection>();
         public ICollection<UserConnection> Following { get; set; } = new List<UserConnection>();
+        public ICollection<QuestionVote> QuestionVotes { get; set; } = new List<QuestionVote>();
+        public ICollection<AnswerVote> AnswerVotes { get; set; } = new List<AnswerVote>();
     }
 }

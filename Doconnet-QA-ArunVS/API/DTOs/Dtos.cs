@@ -76,6 +76,7 @@ namespace DoConnect.API.DTOs
         public int ViewCount { get; set; }
         public int VoteCount { get; set; }
         public bool IsResolved { get; set; }
+        public string ApprovalStatus { get; set; } = "Approved";
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int UserId { get; set; }
@@ -88,25 +89,30 @@ namespace DoConnect.API.DTOs
     public class CreateAnswerDto
     {
         public string Body { get; set; } = string.Empty;
+        public string? ImageUrl { get; set; }
         public int QuestionId { get; set; }
     }
 
     public class UpdateAnswerDto
     {
         public string Body { get; set; } = string.Empty;
+        public string? ImageUrl { get; set; }
     }
 
     public class AnswerDto
     {
         public int AnswerId { get; set; }
         public string Body { get; set; } = string.Empty;
+        public string? ImageUrl { get; set; }
         public int VoteCount { get; set; }
         public bool IsAccepted { get; set; }
+        public string ApprovalStatus { get; set; } = "Approved";
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
         public int UserId { get; set; }
         public string Username { get; set; } = string.Empty;
         public int QuestionId { get; set; }
+        public string? QuestionTitle { get; set; }
     }
 
     // ===== NOTIFICATION DTOs =====

@@ -22,7 +22,7 @@ export class QuestionService {
     return this.http.get<{ question: Question; answers: Answer[] }>(`${BASE}/questions/${id}`);
   }
 
-  create(data: { title: string; body: string; tags?: string }): Observable<any> {
+  create(data: { title: string; body: string; tags?: string; imageUrl?: string }): Observable<any> {
     return this.http.post(`${BASE}/questions`, data);
   }
 
@@ -47,6 +47,14 @@ export class QuestionService {
   getByUser(userId: number): Observable<Question[]> {
     return this.http.get<Question[]>(`${BASE}/questions/user/${userId}`);
   }
+
+  getPending(): Observable<Question[]> {
+    return this.http.get<Question[]>(`${BASE}/questions/pending`);
+  }
+
+  setApproval(id: number, approve: boolean): Observable<any> {
+    return this.http.patch(`${BASE}/questions/${id}/approval?approve=${approve}`, {});
+  }
 }
 
 @Injectable({ providedIn: 'root' })
@@ -57,12 +65,12 @@ export class AnswerService {
     return this.http.get<Answer[]>(`${BASE}/answers/question/${questionId}`);
   }
 
-  create(data: { body: string; questionId: number }): Observable<any> {
+  create(data: { body: string; imageUrl?: string; questionId: number }): Observable<any> {
     return this.http.post(`${BASE}/answers`, data);
   }
 
-  update(id: number, body: string): Observable<any> {
-    return this.http.put(`${BASE}/answers/${id}`, { body });
+  update(id: number, data: { body: string; imageUrl?: string }): Observable<any> {
+    return this.http.put(`${BASE}/answers/${id}`, data);
   }
 
   delete(id: number): Observable<any> {
@@ -71,6 +79,14 @@ export class AnswerService {
 
   vote(id: number, type: 'up' | 'down'): Observable<any> {
     return this.http.post(`${BASE}/answers/${id}/vote?type=${type}`, {});
+  }
+
+  getPending(): Observable<Answer[]> {
+    return this.http.get<Answer[]>(`${BASE}/answers/pending`);
+  }
+
+  setApproval(id: number, approve: boolean): Observable<any> {
+    return this.http.patch(`${BASE}/answers/${id}/approval?approve=${approve}`, {});
   }
 }
 
@@ -144,5 +160,19 @@ export class ReviewService {
 
   delete(id: number): Observable<any> {
     return this.http.delete(`${BASE}/reviews/${id}`);
+  }
+}
+
+@Injectable({ providedIn: 'root' })
+export class ImageService {
+  constructor(private http: HttpClient) {}
+
+  upload(file: File, entityType: 'question' | 'answer'): Observable<{ url: string; relativePath: string; fileName: string; contentType: string }> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<{ url: string; relativePath: string; fileName: string; contentType: string }>(
+      `${BASE}/images/upload?entityType=${entityType}`,
+      formData
+    );
   }
 }

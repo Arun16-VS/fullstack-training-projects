@@ -12,34 +12,98 @@ import { AuthService } from '../../../services/auth.service';
   imports: [CommonModule, RouterLink, FormsModule],
   template: `
     <div class="container">
+      <section *ngIf="showFeaturedIntro" class="hero-shell fade-in">
+        <div class="hero-copy">
+          <span class="hero-kicker">Built and presented by Arun</span>
+          <h1>DoConnect Community Q&A and Collaboration Platform</h1>
+          <p class="hero-lead">
+            A people-first space to ask practical questions, share fixes, post screenshots,
+            and turn everyday issues into useful solutions for the whole team.
+          </p>
+
+          <div class="hero-actions">
+            <a *ngIf="isLoggedIn" routerLink="/questions/ask" class="btn btn-primary">Ask a Question</a>
+            <a *ngIf="!isLoggedIn" routerLink="/register" class="btn btn-primary">Join the Community</a>
+            <a routerLink="/questions" class="btn btn-ghost">Browse Live Questions</a>
+          </div>
+
+          <div class="topic-cloud">
+            <span *ngFor="let topic of solutionAreas" class="topic-pill">{{ topic }}</span>
+          </div>
+
+          <div class="author-note">
+            <strong>Author:</strong> Arun
+            <span>Designed to make frontend, backend, database, UI, testing, and debugging questions easier to solve together.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="visual-board">
+            <svg viewBox="0 0 420 300" class="hero-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="100%" stop-color="#eef3fb" />
+                </linearGradient>
+              </defs>
+              <rect x="18" y="22" rx="28" ry="28" width="384" height="256" fill="url(#panel)" stroke="#d9cdbb" stroke-width="2"/>
+              <circle cx="68" cy="72" r="8" fill="#486fb2"/>
+              <circle cx="98" cy="72" r="8" fill="#a66a2c"/>
+              <circle cx="128" cy="72" r="8" fill="#2f855a"/>
+              <rect x="54" y="102" rx="18" ry="18" width="138" height="78" fill="#f8fafc" stroke="#dfe7f4"/>
+              <rect x="214" y="102" rx="18" ry="18" width="150" height="56" fill="#fef8ef" stroke="#ead8bf"/>
+              <rect x="214" y="170" rx="18" ry="18" width="104" height="40" fill="#eef7f0" stroke="#cde8d5"/>
+              <circle cx="88" cy="141" r="20" fill="#dbe6f8"/>
+              <path d="M88 131c6 0 10 4 10 10s-4 10-10 10-10-4-10-10 4-10 10-10zm-16 34c4-8 12-12 16-12s12 4 16 12" fill="#486fb2"/>
+              <path d="M226 123h98" stroke="#486fb2" stroke-width="8" stroke-linecap="round"/>
+              <path d="M226 140h82" stroke="#8b7a68" stroke-width="6" stroke-linecap="round"/>
+              <path d="M226 183h54" stroke="#2f855a" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="336" cy="207" r="28" fill="#486fb2" opacity="0.14"/>
+              <circle cx="356" cy="226" r="10" fill="#486fb2"/>
+            </svg>
+
+            <div class="floating-card card-a">
+              <span class="mini-tag">Frontend</span>
+              <strong>UI issue?</strong>
+              <p>Share a screenshot and get practical fixes.</p>
+            </div>
+
+            <div class="floating-card card-b">
+              <span class="mini-tag">Backend</span>
+              <strong>API or JWT problem?</strong>
+              <p>Explain the flow and capture the response.</p>
+            </div>
+
+            <div class="floating-card card-c">
+              <span class="mini-tag">Database</span>
+              <strong>Schema, query, or migration doubt?</strong>
+              <p>Turn it into a searchable team answer.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section *ngIf="showFeaturedIntro" class="solution-showcase">
+        <article *ngFor="let item of showcaseCards" class="showcase-card">
+          <span class="showcase-label">{{ item.label }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.body }}</p>
+        </article>
+      </section>
+
       <div class="page-header">
         <div>
-          <h1>Questions</h1>
-          <p class="text-muted">{{ total }} questions in the community</p>
+          <h2>{{ isLoggedIn ? 'Questions' : 'Community Questions' }}</h2>
+          <p class="text-muted">{{ total }} questions shared in the platform</p>
         </div>
         <a *ngIf="isLoggedIn" routerLink="/questions/ask" class="btn btn-primary">Ask Question</a>
       </div>
-
-      <section *ngIf="showFeaturedIntro" class="featured-intro">
-        <div class="intro-copy">
-          <span class="eyebrow">How DoConnect Helps</span>
-          <h2>Ask practical questions, share fixes, and keep a useful record for the team.</h2>
-          <p>Browse real discussions before signing in. Once you join, you can post questions with screenshots, answer others, and track updates in one place.</p>
-        </div>
-        <div class="featured-grid">
-          <article *ngFor="let item of featuredQuestions" class="featured-card">
-            <span class="featured-tag">{{ item.tag }}</span>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.body }}</p>
-          </article>
-        </div>
-      </section>
 
       <div class="filters-bar">
         <div class="search-wrap">
           <span class="search-icon">Q</span>
           <input type="text" [(ngModel)]="searchQuery" (keyup.enter)="search()"
-            placeholder="Search questions..." class="search-input">
+            placeholder="Search questions, issues, tags, or solutions..." class="search-input">
         </div>
         <div class="filter-group">
           <button class="filter-btn" [class.active]="resolvedFilter === null" (click)="setFilter(null)">All</button>
@@ -87,6 +151,8 @@ import { AuthService } from '../../../services/auth.service';
               <div class="q-title-row">
                 <h3 class="q-title">{{ q.title }}</h3>
                 <span *ngIf="q.isResolved" class="badge-resolved">Resolved</span>
+                <span *ngIf="q.approvalStatus === 'Pending'" class="badge-pending">Pending</span>
+                <span *ngIf="q.approvalStatus === 'Rejected'" class="badge-rejected">Rejected</span>
               </div>
 
               <div class="q-preview-row" [class.with-image]="!!q.imageUrl">
@@ -119,36 +185,76 @@ import { AuthService } from '../../../services/auth.service';
     </div>
   `,
   styles: [`
-    .page-header {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      padding: 40px 0 24px;
+    .hero-shell {
+      display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 28px;
+      padding: 28px; margin-bottom: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(72,111,178,0.12), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(166,106,44,0.12), transparent 24%),
+        linear-gradient(135deg, rgba(255,255,255,0.94), rgba(247,241,230,0.98));
+      border: 1px solid var(--border); border-radius: 30px; box-shadow: var(--shadow);
     }
-    .page-header h1 { margin-bottom: 6px; font-size: 3rem; }
-    .featured-intro {
-      margin-bottom: 24px; padding: 28px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(247,241,230,0.96));
-      border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow);
-    }
-    .eyebrow {
-      display: inline-block; margin-bottom: 10px; padding: 4px 10px;
-      border-radius: 999px; background: var(--bg-hover); color: var(--accent);
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-bottom: 14px; padding: 6px 12px; border-radius: 999px;
+      background: rgba(72,111,178,0.1); color: var(--accent);
       font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
     }
-    .intro-copy h2 { max-width: 760px; margin-bottom: 10px; font-size: 2rem; line-height: 1.15; }
-    .intro-copy p { max-width: 720px; color: var(--text-secondary); font-size: 1rem; }
-    .featured-grid {
-      margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    .hero-copy h1 { max-width: 720px; margin-bottom: 16px; font-size: 3.2rem; line-height: 1.03; }
+    .hero-lead { max-width: 700px; color: var(--text-secondary); font-size: 1.08rem; line-height: 1.65; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 22px 0 18px; }
+    .topic-cloud { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .topic-pill {
+      padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.88);
+      border: 1px solid var(--border); color: var(--text-secondary); font-size: 0.84rem; font-weight: 600;
     }
-    .featured-card {
-      background: rgba(255,255,255,0.82); border: 1px solid var(--border);
-      border-radius: 18px; padding: 18px; min-height: 180px;
+    .author-note {
+      display: flex; flex-direction: column; gap: 6px;
+      padding: 16px 18px; background: rgba(255,255,255,0.8);
+      border: 1px solid rgba(203,188,166,0.6); border-radius: 18px;
+      color: var(--text-secondary);
     }
-    .featured-card h3 { font-family: var(--font-display); font-size: 1.15rem; margin: 10px 0 8px; }
-    .featured-card p { color: var(--text-secondary); font-size: 0.95rem; }
-    .featured-tag {
+    .author-note strong { color: var(--text-primary); }
+    .hero-visual { display: flex; align-items: stretch; }
+    .visual-board {
+      position: relative; min-height: 100%; width: 100%;
+      background: rgba(255,255,255,0.75); border: 1px solid rgba(217,205,187,0.9);
+      border-radius: 26px; padding: 18px; overflow: hidden;
+    }
+    .hero-svg { width: 100%; height: auto; display: block; border-radius: 20px; }
+    .floating-card {
+      position: absolute; width: 180px; padding: 14px;
+      background: rgba(255,255,255,0.96); border: 1px solid rgba(217,205,187,0.92);
+      border-radius: 18px; box-shadow: 0 12px 28px rgba(82, 59, 34, 0.1);
+    }
+    .card-a { top: 18px; right: 16px; }
+    .card-b { bottom: 96px; left: 18px; }
+    .card-c { bottom: 18px; right: 26px; }
+    .floating-card strong { display: block; margin: 8px 0 6px; font-size: 1rem; }
+    .floating-card p { color: var(--text-secondary); font-size: 0.84rem; line-height: 1.45; }
+    .mini-tag {
       display: inline-block; padding: 4px 10px; border-radius: 999px;
-      background: #eef3fb; color: var(--accent); font-size: 0.75rem; font-weight: 600;
+      background: var(--accent-glow); color: var(--accent); font-size: 0.72rem; font-weight: 700;
     }
+    .solution-showcase {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;
+    }
+    .showcase-card {
+      background: rgba(255,255,255,0.86); border: 1px solid var(--border);
+      border-radius: 22px; padding: 18px; box-shadow: var(--shadow);
+    }
+    .showcase-label {
+      display: inline-block; margin-bottom: 10px; padding: 4px 10px;
+      border-radius: 999px; background: #eef3fb; color: var(--accent);
+      font-size: 0.74rem; font-weight: 700;
+    }
+    .showcase-card h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .showcase-card p { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.55; }
+    .page-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      padding: 12px 0 18px;
+    }
+    .page-header h2 { margin-bottom: 6px; font-size: 2rem; }
     .filters-bar {
       display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
       background: var(--bg-card); border: 1px solid var(--border);
@@ -199,6 +305,12 @@ import { AuthService } from '../../../services/auth.service';
     .q-content { flex: 1; min-width: 0; }
     .q-title-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
     .q-title { font-size: 1.3rem; font-weight: 600; color: var(--text-primary); font-family: var(--font-display); }
+    .badge-pending, .badge-rejected {
+      display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px;
+      font-size: 0.75rem; font-weight: 700;
+    }
+    .badge-pending { background: rgba(154, 103, 0, 0.08); color: #9a6700; border: 1px solid rgba(154, 103, 0, 0.22); }
+    .badge-rejected { background: rgba(192, 86, 91, 0.08); color: var(--danger); border: 1px solid rgba(192, 86, 91, 0.22); }
     .q-preview-row { display: flex; gap: 18px; align-items: flex-start; }
     .q-preview-row.with-image .q-copy { flex: 1; }
     .q-copy { min-width: 0; }
@@ -220,16 +332,22 @@ import { AuthService } from '../../../services/auth.service';
     }
     .author-name { color: var(--text-secondary); font-weight: 600; }
     .q-date { color: var(--text-muted); }
+    @media (max-width: 1100px) {
+      .hero-shell { grid-template-columns: 1fr; }
+      .solution-showcase { grid-template-columns: repeat(2, 1fr); }
+    }
     @media (max-width: 900px) {
-      .featured-grid { grid-template-columns: 1fr; }
       .q-preview-row { flex-direction: column; }
       .q-thumb { width: 100%; height: auto; max-height: 280px; }
+      .floating-card { position: static; width: auto; margin-top: 12px; }
+      .visual-board { display: flex; flex-direction: column; }
     }
     @media (max-width: 600px) {
+      .solution-showcase { grid-template-columns: 1fr; }
       .q-stats { flex-direction: row; min-width: unset; }
       .question-card { flex-direction: column; }
       .page-header { flex-direction: column; gap: 16px; }
-      .page-header h1 { font-size: 2.4rem; }
+      .hero-copy h1 { font-size: 2.4rem; }
     }
   `]
 })
@@ -242,21 +360,27 @@ export class QuestionListComponent implements OnInit {
   searchQuery = '';
   resolvedFilter: boolean | null = null;
   tagFilter = '';
-  featuredQuestions = [
+  solutionAreas = ['Frontend', 'Backend', 'Database', 'API', 'JWT', 'UI/UX', 'Testing', 'Debugging'];
+  showcaseCards = [
     {
-      tag: 'UI Feedback',
-      title: 'Share screenshots when the issue is visual',
-      body: 'Design or alignment problems are easier to understand when the team can see the exact screen.'
+      label: 'Frontend Help',
+      title: 'UI, layout, forms, and routing issues',
+      body: 'Ask about Angular components, responsive fixes, styling problems, and interaction bugs in a way other people can understand quickly.'
     },
     {
-      tag: 'Code Help',
-      title: 'Explain what changed and what broke',
-      body: 'Good questions help others answer faster because they include the expected result and the current issue.'
+      label: 'Backend Logic',
+      title: 'Controllers, APIs, and authentication flow',
+      body: 'Share Web API issues such as JWT login, CRUD operations, role checks, and request/response problems.'
     },
     {
-      tag: 'Team Memory',
-      title: 'Keep useful fixes easy to find later',
-      body: 'Resolved discussions become a lightweight knowledge base for both users and admins.'
+      label: 'Database Support',
+      title: 'Queries, migrations, and schema design',
+      body: 'Use the platform to discuss SQL queries, EF Core migrations, entity relationships, and LocalDB issues.'
+    },
+    {
+      label: 'Project Memory',
+      title: 'Turn one-time fixes into reusable solutions',
+      body: 'Resolved answers become team memory, so the next person facing the same problem can find the fix faster.'
     }
   ];
 

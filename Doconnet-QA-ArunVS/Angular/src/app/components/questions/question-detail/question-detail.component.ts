@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { QuestionService, AnswerService } from '../../../services/api.services';
+import { QuestionService, AnswerService, ImageService } from '../../../services/api.services';
 import { AuthService } from '../../../services/auth.service';
 import { Question, Answer } from '../../../models/models';
 
@@ -21,6 +21,8 @@ import { Question, Answer } from '../../../models/models';
               <div class="q-badges">
                 <span *ngIf="question.isResolved" class="badge-resolved">Resolved</span>
                 <span *ngIf="!question.isResolved" class="badge-unresolved">Open</span>
+                <span *ngIf="question.approvalStatus === 'Pending'" class="badge-pending">Pending Approval</span>
+                <span *ngIf="question.approvalStatus === 'Rejected'" class="badge-rejected">Rejected</span>
               </div>
               <h1>{{ question.title }}</h1>
               <div class="q-meta-row">
@@ -33,9 +35,9 @@ import { Question, Answer } from '../../../models/models';
 
           <div class="content-row">
             <div class="vote-btn">
-              <button (click)="voteQuestion('up')" title="Upvote">!</button>
+              <button (click)="voteQuestion('up')" [disabled]="questionVotePending" title="Upvote">!</button>
               <span class="count">{{ question.voteCount }}</span>
-              <button (click)="voteQuestion('down')" title="Downvote">-</button>
+              <button (click)="voteQuestion('down')" [disabled]="questionVotePending" title="Downvote">-</button>
             </div>
 
             <div class="q-body-area">
@@ -90,12 +92,14 @@ import { Question, Answer } from '../../../models/models';
           <div class="answers-list" *ngIf="answers.length > 0">
             <div *ngFor="let a of answers" class="answer-card" [class.accepted]="a.isAccepted">
               <div class="accepted-banner" *ngIf="a.isAccepted">Accepted Answer</div>
+              <div class="pending-banner" *ngIf="a.approvalStatus === 'Pending'">Pending Approval</div>
+              <div class="rejected-banner" *ngIf="a.approvalStatus === 'Rejected'">Rejected</div>
 
               <div class="content-row">
                 <div class="vote-btn">
-                  <button (click)="voteAnswer(a, 'up')">!</button>
+                  <button (click)="voteAnswer(a, 'up')" [disabled]="isAnswerVotePending(a.answerId)">!</button>
                   <span class="count">{{ a.voteCount }}</span>
-                  <button (click)="voteAnswer(a, 'down')">-</button>
+                  <button (click)="voteAnswer(a, 'down')" [disabled]="isAnswerVotePending(a.answerId)">-</button>
                   <button *ngIf="isQuestionOwner && !question?.isResolved"
                     class="accept-btn" title="Accept this answer"
                     (click)="acceptAnswer(a.answerId)">OK</button>
@@ -103,6 +107,7 @@ import { Question, Answer } from '../../../models/models';
 
                 <div class="answer-body-area">
                   <div class="answer-body" *ngIf="editingAnswerId !== a.answerId">{{ a.body }}</div>
+                  <img *ngIf="a.imageUrl" [src]="a.imageUrl" [alt]="'Answer image for ' + (question?.title || 'question')" class="question-image">
 
                   <div *ngIf="editingAnswerId === a.answerId">
                     <textarea [(ngModel)]="editAnswerBody" class="form-control" rows="5"></textarea>
@@ -129,6 +134,15 @@ import { Question, Answer } from '../../../models/models';
             <div *ngIf="answerError" class="alert alert-error">{{ answerError }}</div>
             <textarea [(ngModel)]="newAnswerBody" class="form-control" rows="8"
               placeholder="Write a detailed answer..."></textarea>
+            <div class="form-group mt-16">
+              <label>Answer Image (optional)</label>
+              <div class="image-picker">
+                <label class="btn btn-ghost btn-sm upload-label" for="answer-image">Add Image</label>
+                <input id="answer-image" type="file" accept="image/*" (change)="onAnswerFileSelected($event)">
+                <button *ngIf="newAnswerImageUrl" type="button" class="btn btn-ghost btn-sm" (click)="removeAnswerImage()">Remove Image</button>
+              </div>
+              <img *ngIf="newAnswerImageUrl" [src]="newAnswerImageUrl" alt="Answer preview" class="question-image edit-preview">
+            </div>
             <button class="btn btn-primary mt-16" (click)="postAnswer()" [disabled]="answerLoading || !newAnswerBody.trim()">
               {{ answerLoading ? 'Posting...' : 'Post Answer' }}
             </button>
@@ -171,6 +185,16 @@ import { Question, Answer } from '../../../models/models';
     .answer-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 22px; padding: 24px; box-shadow: var(--shadow); }
     .answer-card.accepted { border-color: rgba(47, 133, 90, 0.3); background: rgba(47, 133, 90, 0.04); }
     .accepted-banner { color: var(--success); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; }
+    .pending-banner, .badge-pending {
+      color: #9a6700; background: rgba(154, 103, 0, 0.08); border: 1px solid rgba(154, 103, 0, 0.22);
+      display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .rejected-banner, .badge-rejected {
+      color: var(--danger); background: rgba(192, 86, 91, 0.08); border: 1px solid rgba(192, 86, 91, 0.22);
+      display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 700;
+      margin-bottom: 12px;
+    }
     .answer-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 16px; flex-wrap: wrap; gap: 8px; }
     .accept-btn {
       background: rgba(47, 133, 90, 0.12); border: 1px solid rgba(47, 133, 90, 0.28);
@@ -196,14 +220,18 @@ export class QuestionDetailComponent implements OnInit {
   newAnswerBody = '';
   answerLoading = false;
   answerError = '';
+  newAnswerImageUrl = '';
+  questionVotePending = false;
   editingAnswerId: number | null = null;
   editAnswerBody = '';
+  private answerVotePending = new Set<number>();
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private questionService: QuestionService,
     private answerService: AnswerService,
+    private imageService: ImageService,
     public authService: AuthService
   ) {}
 
@@ -235,11 +263,10 @@ export class QuestionDetailComponent implements OnInit {
     const file = input.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.editImageUrl = String(reader.result || '');
-    };
-    reader.readAsDataURL(file);
+    this.imageService.upload(file, 'question').subscribe({
+      next: (res) => this.editImageUrl = res.url,
+      error: () => this.answerError = 'Question image upload failed.'
+    });
   }
 
   removeImage() {
@@ -256,8 +283,13 @@ export class QuestionDetailComponent implements OnInit {
   }
 
   voteQuestion(type: 'up' | 'down') {
-    if (!this.isLoggedIn) return;
-    this.questionService.vote(this.question!.questionId, type).subscribe(r => this.question!.voteCount = r.voteCount);
+    if (!this.isLoggedIn || this.questionVotePending) return;
+    this.questionVotePending = true;
+    this.questionService.vote(this.question!.questionId, type).subscribe({
+      next: (r) => this.question!.voteCount = r.voteCount,
+      error: () => this.questionVotePending = false,
+      complete: () => this.questionVotePending = false
+    });
   }
 
   saveEdit() {
@@ -296,9 +328,17 @@ export class QuestionDetailComponent implements OnInit {
     if (!this.newAnswerBody.trim()) return;
     this.answerLoading = true;
     this.answerError = '';
-    this.answerService.create({ body: this.newAnswerBody, questionId: this.question!.questionId }).subscribe({
+    this.answerService.create({
+      body: this.newAnswerBody,
+      imageUrl: this.newAnswerImageUrl,
+      questionId: this.question!.questionId
+    }).subscribe({
       next: () => {
+        if (!this.isAdmin) {
+          alert('Answer submitted. It is waiting for admin approval.');
+        }
         this.newAnswerBody = '';
+        this.newAnswerImageUrl = '';
         this.answerLoading = false;
         this.ngOnInit();
       },
@@ -307,14 +347,23 @@ export class QuestionDetailComponent implements OnInit {
   }
 
   voteAnswer(a: Answer, type: 'up' | 'down') {
-    if (!this.isLoggedIn) return;
-    this.answerService.vote(a.answerId, type).subscribe(r => a.voteCount = r.voteCount);
+    if (!this.isLoggedIn || this.answerVotePending.has(a.answerId)) return;
+    this.answerVotePending.add(a.answerId);
+    this.answerService.vote(a.answerId, type).subscribe({
+      next: (r) => a.voteCount = r.voteCount,
+      error: () => this.answerVotePending.delete(a.answerId),
+      complete: () => this.answerVotePending.delete(a.answerId)
+    });
+  }
+
+  isAnswerVotePending(answerId: number) {
+    return this.answerVotePending.has(answerId);
   }
 
   startEditAnswer(a: Answer) { this.editingAnswerId = a.answerId; this.editAnswerBody = a.body; }
 
   saveAnswerEdit(a: Answer) {
-    this.answerService.update(a.answerId, this.editAnswerBody).subscribe(() => {
+    this.answerService.update(a.answerId, { body: this.editAnswerBody, imageUrl: a.imageUrl }).subscribe(() => {
       a.body = this.editAnswerBody;
       this.editingAnswerId = null;
     });
@@ -323,5 +372,20 @@ export class QuestionDetailComponent implements OnInit {
   deleteAnswer(id: number) {
     if (!confirm('Delete this answer?')) return;
     this.answerService.delete(id).subscribe(() => this.answers = this.answers.filter(a => a.answerId !== id));
+  }
+
+  onAnswerFileSelected(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const file = input.files?.[0];
+    if (!file) return;
+
+    this.imageService.upload(file, 'answer').subscribe({
+      next: (res) => this.newAnswerImageUrl = res.url,
+      error: () => this.answerError = 'Answer image upload failed.'
+    });
+  }
+
+  removeAnswerImage() {
+    this.newAnswerImageUrl = '';
   }
 }

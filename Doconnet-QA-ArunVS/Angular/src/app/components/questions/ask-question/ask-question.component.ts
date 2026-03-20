@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { QuestionService } from '../../../services/api.services';
+import { ImageService, QuestionService } from '../../../services/api.services';
 
 @Component({
   selector: 'app-ask-question',
@@ -118,8 +118,14 @@ export class AskQuestionComponent {
   submitted = false;
   error = '';
   imagePreview = '';
+  uploadPending = false;
 
-  constructor(private fb: FormBuilder, private questionService: QuestionService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private questionService: QuestionService,
+    private imageService: ImageService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(15)]],
       body: ['', Validators.required],
@@ -135,12 +141,18 @@ export class AskQuestionComponent {
     const file = input.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.imagePreview = String(reader.result || '');
-      this.form.patchValue({ imageUrl: this.imagePreview });
-    };
-    reader.readAsDataURL(file);
+    this.uploadPending = true;
+    this.imageService.upload(file, 'question').subscribe({
+      next: (res) => {
+        this.imagePreview = res.url;
+        this.form.patchValue({ imageUrl: res.url });
+        this.uploadPending = false;
+      },
+      error: () => {
+        this.error = 'Image upload failed.';
+        this.uploadPending = false;
+      }
+    });
   }
 
   removeImage() {
@@ -155,7 +167,12 @@ export class AskQuestionComponent {
     this.loading = true;
 
     this.questionService.create(this.form.value).subscribe({
-      next: (res) => this.router.navigate(['/questions', res.questionId]),
+      next: (res) => {
+        if (res.approvalStatus === 'Pending') {
+          alert('Question submitted. It is waiting for admin approval.');
+        }
+        this.router.navigate(['/questions', res.questionId]);
+      },
       error: (err) => { this.error = err.error?.message || 'Failed to post question.'; this.loading = false; }
     });
   }

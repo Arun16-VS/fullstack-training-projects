@@ -55,7 +55,7 @@ code, pre { font-family: var(--font-mono); }
 
 /* ===== LAYOUT ===== */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.page-content { padding-top: 80px; min-height: 100vh; }
+.page-content { padding-top: 92px; min-height: 100vh; }
 
 /* ===== CARDS ===== */
 .card {

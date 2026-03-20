@@ -32,6 +32,7 @@ export interface Question {
   viewCount: number;
   voteCount: number;
   isResolved: boolean;
+  approvalStatus: string;
   createdAt: string;
   updatedAt?: string;
   userId: number;
@@ -43,13 +44,16 @@ export interface Question {
 export interface Answer {
   answerId: number;
   body: string;
+  imageUrl?: string;
   voteCount: number;
   isAccepted: boolean;
+  approvalStatus: string;
   createdAt: string;
   updatedAt?: string;
   userId: number;
   username: string;
   questionId: number;
+  questionTitle?: string;
 }
 
 export interface Notification {
@@ -84,4 +88,6 @@ export interface AdminStats {
   totalQuestions: number;
   totalAnswers: number;
   resolvedQuestions: number;
+  pendingQuestions: number;
+  pendingAnswers: number;
 }

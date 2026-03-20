@@ -1,9 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/auth.service';
 import { NotificationService } from './services/api.services';
-import { Subscription, interval } from 'rxjs';
+import { SignalrService } from './services/signalr.service';
+import { Subscription, filter, interval } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 @Component({
@@ -13,7 +14,7 @@ import { switchMap } from 'rxjs/operators';
   template: `
     <nav class="navbar">
       <div class="container nav-inner">
-        <a routerLink="/questions" class="brand">
+        <a routerLink="/about" class="brand">
           <span class="brand-icon" aria-hidden="true">
             <span class="brand-node top"></span>
             <span class="brand-node left"></span>
@@ -21,7 +22,10 @@ import { switchMap } from 'rxjs/operators';
             <span class="brand-link left-link"></span>
             <span class="brand-link right-link"></span>
           </span>
-          <span class="brand-text">Do<em>Connect</em></span>
+          <span class="brand-text">
+            <strong>DoConnect Community</strong>
+            <small>Q&amp;A and Collaboration Platform</small>
+          </span>
         </a>
 
         <div class="nav-links">
@@ -75,11 +79,11 @@ import { switchMap } from 'rxjs/operators';
       background: rgba(250, 246, 239, 0.94);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      height: 64px;
+      height: 76px;
     }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
-      height: 64px; gap: 24px;
+      height: 76px; gap: 24px;
     }
     .brand {
       display: flex; align-items: center; gap: 10px;
@@ -103,8 +107,17 @@ import { switchMap } from 'rxjs/operators';
     }
     .brand-link.left-link { width: 10px; left: 6px; top: 6px; transform: rotate(35deg); }
     .brand-link.right-link { width: 10px; left: 11px; top: 6px; transform: rotate(-35deg); }
-    .brand-text { font-family: var(--font-display); font-size: 1.3rem; }
-    .brand-text em { color: var(--accent); font-style: normal; }
+    .brand-text {
+      display: flex; flex-direction: column; line-height: 1.05;
+      font-family: var(--font-display);
+    }
+    .brand-text strong {
+      font-size: 1.18rem; font-weight: 600; letter-spacing: 0.01em;
+    }
+    .brand-text small {
+      font-size: 0.7rem; font-family: var(--font-body);
+      text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted);
+    }
     .nav-links { display: flex; gap: 8px; }
     .nav-link {
       padding: 6px 14px; border-radius: 8px; text-decoration: none;
@@ -158,6 +171,7 @@ import { switchMap } from 'rxjs/operators';
     .dropdown-divider { height: 1px; background: var(--border); border: none; margin: 0; }
     @media (max-width: 600px) {
       .nav-links { display: none; }
+      .brand-text small { display: none; }
     }
   `]
 })
@@ -165,11 +179,14 @@ export class AppComponent implements OnInit, OnDestroy {
   unreadCount = 0;
   menuOpen = false;
   private sub?: Subscription;
+  private signalrSub?: Subscription;
+  private routeSub?: Subscription;
   private readonly docClickHandler = this.onDocClick.bind(this);
 
   constructor(
     public authService: AuthService,
     private notifService: NotificationService,
+    private signalrService: SignalrService,
     private router: Router
   ) {}
 
@@ -179,8 +196,26 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.authService.currentUser$.subscribe(user => {
-      if (user) this.startPolling();
-      else { this.sub?.unsubscribe(); this.unreadCount = 0; }
+      if (user) {
+        this.startPolling();
+        this.signalrService.start();
+      } else {
+        this.sub?.unsubscribe();
+        this.signalrService.stop();
+        this.unreadCount = 0;
+      }
+    });
+    this.signalrSub = this.signalrService.notification$.subscribe(() => {
+      this.unreadCount++;
+    });
+    this.routeSub = this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd)
+    ).subscribe(event => {
+      if (event.urlAfterRedirects.startsWith('/notifications')) {
+        this.unreadCount = 0;
+      } else if (this.isLoggedIn) {
+        this.notifService.getUnreadCount().subscribe(r => this.unreadCount = r.count);
+      }
     });
     document.addEventListener('click', this.docClickHandler);
   }
@@ -202,6 +237,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub?.unsubscribe();
+    this.signalrSub?.unsubscribe();
+    this.routeSub?.unsubscribe();
+    this.signalrService.stop();
     document.removeEventListener('click', this.docClickHandler);
   }
 }

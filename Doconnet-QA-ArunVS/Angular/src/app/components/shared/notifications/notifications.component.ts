@@ -96,7 +96,16 @@ export class NotificationsComponent implements OnInit {
 
   ngOnInit() {
     this.notifService.getAll().subscribe({
-      next: (n) => { this.notifications = n; this.loading = false; },
+      next: (n) => {
+        this.notifications = n;
+        this.loading = false;
+
+        if (this.notifications.some(item => !item.isRead)) {
+          this.notifService.markAllRead().subscribe(() => {
+            this.notifications.forEach(item => item.isRead = true);
+          });
+        }
+      },
       error: () => this.loading = false
     });
   }

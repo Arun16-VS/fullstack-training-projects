@@ -157,6 +157,8 @@ namespace DoConnect.API.Controllers
             var totalQuestions = await _context.Questions.CountAsync(q => q.IsActive);
             var totalAnswers = await _context.Answers.CountAsync(a => a.IsActive);
             var resolvedQuestions = await _context.Questions.CountAsync(q => q.IsResolved && q.IsActive);
+            var pendingQuestions = await _context.Questions.CountAsync(q => q.IsActive && q.ApprovalStatus == "Pending");
+            var pendingAnswers = await _context.Answers.CountAsync(a => a.IsActive && a.ApprovalStatus == "Pending");
 
             return Ok(new
             {
@@ -164,7 +166,9 @@ namespace DoConnect.API.Controllers
                 activeUsers,
                 totalQuestions,
                 totalAnswers,
-                resolvedQuestions
+                resolvedQuestions,
+                pendingQuestions,
+                pendingAnswers
             });
         }
 
