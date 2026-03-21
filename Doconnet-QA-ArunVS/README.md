@@ -14,6 +14,7 @@ Doconnet-QA-ArunVS/
 |   |   |-- AuthController.cs         # Register, login, current user
 |   |   |-- QuestionsController.cs    # CRUD, vote, resolve, search
 |   |   |-- AnswersController.cs      # CRUD, vote
+|   |   |-- ImagesController.cs       # Image upload support
 |   |   |-- UsersController.cs        # Profile update, admin management, connect
 |   |   |-- NotificationsController.cs
 |   |   |-- ReviewsController.cs
@@ -31,6 +32,9 @@ Doconnet-QA-ArunVS/
 |   |   |-- Notification.cs
 |   |   |-- Review.cs
 |   |   |-- UserConnection.cs
+|   |   |-- Image.cs
+|   |   |-- QuestionVote.cs
+|   |   `-- AnswerVote.cs
 |   |-- Program.cs
 |   |-- appsettings.json
 |   `-- DoConnect.API.csproj
@@ -149,16 +153,20 @@ Frontend URL:
 | JWT-based authentication and session handling | Completed |
 | Question CRUD | Completed |
 | Answer CRUD | Completed |
-| Voting for questions and answers | Completed |
+| One-vote-per-user logic for questions and answers | Completed |
 | Resolve question with accepted answer | Completed |
 | Admin dashboard and user management | Completed |
 | Swagger API testing | Completed |
 | Notifications with SignalR | Completed |
 | User reviews | Completed |
 | Profile picture support | Completed |
-| Question image support | Completed |
+| Question image upload support | Completed |
+| Answer image upload support | Completed |
 | Public questions page before login | Completed |
+| Public about page from brand logo | Completed |
 | User connection feature | Completed |
+| Admin moderation for pending questions and answers | Completed |
+| Approval and rejection workflow | Completed |
 | Responsive frontend updates | Completed |
 
 ---
@@ -192,13 +200,17 @@ Frontend URL:
 - Public questions browsing before login
 - Search, filter, and pagination support on questions
 - Real-time notifications using SignalR
-- Voting system for questions and answers
+- Voting system for questions and answers with one active vote per user
 - Accepted answer flow to mark questions as resolved
-- Optional question image upload for screenshots and issue references
+- Optional question and answer image upload for screenshots and issue references
 - User profile image and bio update support
 - User-to-user connect feature
 - Reviews and ratings between users
 - Admin dashboard with user and platform statistics
+- Admin moderation for pending questions and answers
+- Approval and rejection workflow for community content
+- Public landing experience before login with custom home section
+- About platform page describing why DoConnect was created and by whom
 - Responsive UI with client-side validation
 
 ---
@@ -225,4 +237,5 @@ Full API testing can be done from Swagger:
 
 - This project was configured for local execution using SQL Server LocalDB.
 - The final UI was updated to a lighter theme with cleaner typography and improved profile/question flows.
+- Recent updates added moderation, image upload APIs, public homepage/about flow, notification badge handling, and single-vote-per-user tracking.
 - The report and future sprint planning are maintained separately in the project documentation.
