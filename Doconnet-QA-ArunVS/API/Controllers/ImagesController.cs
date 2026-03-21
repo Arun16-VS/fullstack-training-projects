@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoConnect.API.Controllers
 {
+    public class ImageUploadRequest
+    {
+        public IFormFile? File { get; set; }
+    }
+
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
@@ -10,8 +15,10 @@ namespace DoConnect.API.Controllers
     {
         [HttpPost("upload")]
         [RequestSizeLimit(10_000_000)]
-        public async Task<IActionResult> Upload([FromForm] IFormFile file, [FromQuery] string entityType = "question")
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Upload([FromForm] ImageUploadRequest request, [FromQuery] string entityType = "question")
         {
+            var file = request.File;
             if (file == null || file.Length == 0)
                 return BadRequest(new { message = "Image file is required." });
 
