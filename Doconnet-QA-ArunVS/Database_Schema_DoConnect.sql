@@ -138,3 +138,68 @@ VALUES (N'20260315194223_AddUserConnections', N'10.0.0');
 COMMIT;
 GO
 
+BEGIN TRANSACTION;
+ALTER TABLE [Questions] ADD [ApprovalStatus] nvarchar(20) NOT NULL DEFAULT N'';
+
+ALTER TABLE [Answers] ADD [ApprovalStatus] nvarchar(20) NOT NULL DEFAULT N'';
+
+ALTER TABLE [Answers] ADD [ImageUrl] nvarchar(max) NULL;
+
+CREATE TABLE [Images] (
+    [ImageId] int NOT NULL IDENTITY,
+    [FileName] nvarchar(255) NOT NULL,
+    [FilePath] nvarchar(max) NOT NULL,
+    [ContentType] nvarchar(100) NOT NULL,
+    [CreatedAt] datetime2 NOT NULL,
+    [QuestionId] int NULL,
+    [AnswerId] int NULL,
+    CONSTRAINT [PK_Images] PRIMARY KEY ([ImageId]),
+    CONSTRAINT [FK_Images_Answers_AnswerId] FOREIGN KEY ([AnswerId]) REFERENCES [Answers] ([AnswerId]) ON DELETE NO ACTION,
+    CONSTRAINT [FK_Images_Questions_QuestionId] FOREIGN KEY ([QuestionId]) REFERENCES [Questions] ([QuestionId]) ON DELETE NO ACTION
+);
+
+CREATE INDEX [IX_Images_AnswerId] ON [Images] ([AnswerId]);
+
+CREATE INDEX [IX_Images_QuestionId] ON [Images] ([QuestionId]);
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260320051427_AddSprint23ModerationAndImages', N'10.0.0');
+
+COMMIT;
+GO
+
+BEGIN TRANSACTION;
+CREATE TABLE [AnswerVotes] (
+    [AnswerVoteId] int NOT NULL IDENTITY,
+    [Value] int NOT NULL,
+    [AnswerId] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_AnswerVotes] PRIMARY KEY ([AnswerVoteId]),
+    CONSTRAINT [FK_AnswerVotes_Answers_AnswerId] FOREIGN KEY ([AnswerId]) REFERENCES [Answers] ([AnswerId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AnswerVotes_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE NO ACTION
+);
+
+CREATE TABLE [QuestionVotes] (
+    [QuestionVoteId] int NOT NULL IDENTITY,
+    [Value] int NOT NULL,
+    [QuestionId] int NOT NULL,
+    [UserId] int NOT NULL,
+    CONSTRAINT [PK_QuestionVotes] PRIMARY KEY ([QuestionVoteId]),
+    CONSTRAINT [FK_QuestionVotes_Questions_QuestionId] FOREIGN KEY ([QuestionId]) REFERENCES [Questions] ([QuestionId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_QuestionVotes_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([UserId]) ON DELETE NO ACTION
+);
+
+CREATE UNIQUE INDEX [IX_AnswerVotes_AnswerId_UserId] ON [AnswerVotes] ([AnswerId], [UserId]);
+
+CREATE INDEX [IX_AnswerVotes_UserId] ON [AnswerVotes] ([UserId]);
+
+CREATE UNIQUE INDEX [IX_QuestionVotes_QuestionId_UserId] ON [QuestionVotes] ([QuestionId], [UserId]);
+
+CREATE INDEX [IX_QuestionVotes_UserId] ON [QuestionVotes] ([UserId]);
+
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20260320092606_AddPerUserVotes', N'10.0.0');
+
+COMMIT;
+GO
+
