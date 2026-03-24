@@ -127,6 +127,9 @@ namespace DoConnect.API.Controllers
             var user = await _context.Users.FindAsync(id);
             if (user == null) return NotFound();
 
+            if (user.Role == "Admin" && user.Email == "admin@doconnect.com" && user.IsActive)
+                return BadRequest(new { message = "The primary admin account cannot be deactivated." });
+
             user.IsActive = !user.IsActive;
             await _context.SaveChangesAsync();
 
