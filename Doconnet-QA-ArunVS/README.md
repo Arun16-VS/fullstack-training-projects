@@ -132,6 +132,7 @@ Frontend URL:
 
 - Database script: `Database_Schema_DoConnect.sql`
 - API configuration: `API/appsettings.json`
+- Environment reference file: `.env`
 - Database server: `(localdb)\MSSQLLocalDB`
 - Database name: `DatabaseDB`
 
@@ -167,6 +168,7 @@ Frontend URL:
 | User connection feature | Completed |
 | Admin moderation for pending questions and answers | Completed |
 | Approval and rejection workflow | Completed |
+| Primary admin protection from accidental deactivation | Completed |
 | Responsive frontend updates | Completed |
 
 ---
@@ -209,6 +211,7 @@ Frontend URL:
 - Admin dashboard with user and platform statistics
 - Admin moderation for pending questions and answers
 - Approval and rejection workflow for community content
+- Primary admin account protection in user management
 - Public landing experience before login with custom home section
 - About platform page describing why DoConnect was created and by whom
 - Responsive UI with client-side validation
@@ -237,5 +240,5 @@ Full API testing can be done from Swagger:
 
 - This project was configured for local execution using SQL Server LocalDB.
 - The final UI was updated to a lighter theme with cleaner typography and improved profile/question flows.
-- Recent updates added moderation, image upload APIs, public homepage/about flow, notification badge handling, and single-vote-per-user tracking.
+- Recent updates added moderation, image upload APIs, public homepage/about flow, notification badge handling, single-vote-per-user tracking, and protection for the main admin account from accidental deactivation.
 - The report and future sprint planning are maintained separately in the project documentation.
